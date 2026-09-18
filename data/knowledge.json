@@ -1,0 +1,34 @@
+[
+  {
+    "id": "demo-signal",
+    "title": "Signal timing review",
+    "domain": "traffic",
+    "content": "Compare signal timings using identical demand, routes, seed and simulation horizon. Check queue spillback and unfinished vehicles. A simulated benefit does not establish real-world effectiveness.",
+    "source": "Local project methodology v1",
+    "provenance": "authored demonstration guidance; not official engineering standards"
+  },
+  {
+    "id": "demo-drainage",
+    "title": "Waterlogging and drainage",
+    "domain": "traffic",
+    "content": "Waterlogging can reduce usable road capacity. A local drainage survey and rainfall evidence are required before sizing a remedy. Costs in this application are illustrative, not approved public-works rates.",
+    "source": "Local project methodology v1",
+    "provenance": "authored demonstration guidance"
+  },
+  {
+    "id": "demo-air",
+    "title": "Traffic-linked air pollution",
+    "domain": "pollution",
+    "content": "Vehicle idling is one possible emissions source. Air-quality observations alone cannot attribute pollution to traffic. Do not infer AQI or health effects from simulated CO2 emissions.",
+    "source": "Local project methodology v1",
+    "provenance": "authored demonstration guidance"
+  },
+  {
+    "id": "demo-energy",
+    "title": "Energy and traffic",
+    "domain": "energy",
+    "content": "Streetlight outages and electricity consumption require utility confirmation. Synthetic load indicators in the dashboard are educational examples and are not metered utility data.",
+    "source": "Local project methodology v1",
+    "provenance": "authored demonstration guidance"
+  }
+]

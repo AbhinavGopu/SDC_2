@@ -1,0 +1,15 @@
+{
+  "name": "hyderabad-city-lab",
+  "private": true,
+  "workspaces": [
+    "citizen",
+    "planner"
+  ],
+  "scripts": {
+    "build": "npm run build --workspace=citizen && npm run build --workspace=planner",
+    "test:e2e": "playwright test"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.56.0"
+  }
+}

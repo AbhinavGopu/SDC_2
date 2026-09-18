@@ -1,0 +1,14 @@
+{
+  "url": "https://archive-api.open-meteo.com/v1/archive?latitude=17.435&longitude=78.445&start_date=2025-07-01&end_date=2025-07-07&daily=precipitation_sum&timezone=UTC&models=era5",
+  "source": "Open-Meteo historical API / ERA5 reanalysis",
+  "license": "CC BY 4.0 (Open-Meteo); attribution to Copernicus ERA5 required",
+  "kind": "historical gridded weather reanalysis; NOT observed traffic or official live telemetry",
+  "requested_coordinates": [
+    17.435,
+    78.445
+  ],
+  "returned_coordinates": [
+    17.5,
+    78.5
+  ]
+}

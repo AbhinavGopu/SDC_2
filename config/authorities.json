@@ -1,0 +1,10 @@
+{
+  "signal": "Hyderabad Traffic Police (illustrative routing; verify jurisdiction)",
+  "pothole": "GHMC Engineering (illustrative routing)",
+  "parking": "GHMC and Traffic Police (illustrative routing)",
+  "air": "Telangana Pollution Control Board (illustrative routing)",
+  "water": "HMWSSB (illustrative routing)",
+  "waste": "GHMC Solid Waste Management (illustrative routing)",
+  "energy": "Local electricity distribution utility / GHMC Electrical (verify jurisdiction)",
+  "transit": "Telangana state road transport operator (verify jurisdiction)"
+}

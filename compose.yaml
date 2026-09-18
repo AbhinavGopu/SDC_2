@@ -1,0 +1,85 @@
+name: sdc2-smartcity
+services:
+  db:
+    build: infra/db
+    environment:
+      POSTGRES_DB: smartcity
+      POSTGRES_USER: smartcity
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-local-city-db-password}
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U smartcity -d smartcity"]
+      interval: 5s
+      timeout: 3s
+      retries: 30
+  redis:
+    image: redis:7.4-alpine
+    command: redis-server --appendonly yes
+    volumes:
+      - redisdata:/data
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 3s
+      retries: 20
+  api:
+    build:
+      context: .
+      dockerfile: backend/Dockerfile
+    environment: &backend-env
+      DATABASE_URL: postgresql+psycopg://smartcity:${POSTGRES_PASSWORD:-local-city-db-password}@db:5432/smartcity
+      REDIS_URL: redis://redis:6379/0
+      JWT_SECRET: ${JWT_SECRET:-local-development-only-change-before-sharing-123456}
+      DEMO_PASSWORD: ${DEMO_PASSWORD:-CityDemo-2026!}
+      OPENAI_API_KEY: ${OPENAI_API_KEY:-}
+      OPENAI_MODEL: ${OPENAI_MODEL:-gpt-4.1-mini}
+      MEDIA_DIR: /media
+    volumes:
+      - media:/media
+    ports: ["127.0.0.1:8000:8000"]
+    depends_on:
+      db: {condition: service_healthy}
+      redis: {condition: service_healthy}
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8000/health')"]
+      interval: 10s
+      timeout: 5s
+      retries: 30
+  sumo:
+    build:
+      context: .
+      dockerfile: simulation/Dockerfile
+    environment: *backend-env
+    command: ["python", "-m", "backend.worker"]
+    volumes:
+      - media:/media
+    depends_on:
+      api: {condition: service_healthy}
+    healthcheck:
+      test: ["CMD", "python", "-c", "import os,redis; assert redis.Redis.from_url(os.environ['REDIS_URL']).get('worker:heartbeat')"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+  citizen:
+    build:
+      context: apps
+      args: {APP: citizen}
+    environment:
+      API_INTERNAL_URL: http://api:8000
+    ports: ["127.0.0.1:3000:3000"]
+    depends_on:
+      api: {condition: service_healthy}
+  planner:
+    build:
+      context: apps
+      args: {APP: planner}
+    environment:
+      API_INTERNAL_URL: http://api:8000
+    ports: ["127.0.0.1:3001:3000"]
+    depends_on:
+      api: {condition: service_healthy}
+volumes:
+  pgdata:
+  redisdata:
+  media:

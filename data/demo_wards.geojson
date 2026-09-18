@@ -1,0 +1,110 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 1,
+        "name": "Ameerpet demonstration area",
+        "provenance": "simulated rectangular study area; NOT official GHMC ward boundaries or ward numbers"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              78.43,
+              17.42
+            ],
+            [
+              78.46,
+              17.42
+            ],
+            [
+              78.46,
+              17.45
+            ],
+            [
+              78.43,
+              17.45
+            ],
+            [
+              78.43,
+              17.42
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 2,
+        "name": "Gachibowli demonstration area",
+        "provenance": "simulated rectangular study area; NOT official GHMC ward boundaries or ward numbers"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              78.33,
+              17.42
+            ],
+            [
+              78.37,
+              17.42
+            ],
+            [
+              78.37,
+              17.46
+            ],
+            [
+              78.33,
+              17.46
+            ],
+            [
+              78.33,
+              17.42
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 3,
+        "name": "Madhapur demonstration area",
+        "provenance": "simulated rectangular study area; NOT official GHMC ward boundaries or ward numbers"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              78.38,
+              17.44
+            ],
+            [
+              78.41,
+              17.44
+            ],
+            [
+              78.41,
+              17.47
+            ],
+            [
+              78.38,
+              17.47
+            ],
+            [
+              78.38,
+              17.44
+            ]
+          ]
+        ]
+      }
+    }
+  ]
+}

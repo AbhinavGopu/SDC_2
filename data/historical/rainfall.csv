@@ -1,0 +1,8 @@
+ward_id,domain,metric,value,unit,observed_at
+1,weather,precipitation_sum,15.3,mm,2025-07-01T00:00:00+00:00
+1,weather,precipitation_sum,5.6,mm,2025-07-02T00:00:00+00:00
+1,weather,precipitation_sum,2.6,mm,2025-07-03T00:00:00+00:00
+1,weather,precipitation_sum,6.7,mm,2025-07-04T00:00:00+00:00
+1,weather,precipitation_sum,1.6,mm,2025-07-05T00:00:00+00:00
+1,weather,precipitation_sum,3.6,mm,2025-07-06T00:00:00+00:00
+1,weather,precipitation_sum,1.2,mm,2025-07-07T00:00:00+00:00
