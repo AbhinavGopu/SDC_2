@@ -1,0 +1,12 @@
+city: Hyderabad
+bounding_box:
+  min_lat: 17.20
+  max_lat: 17.60
+  min_lon: 78.25
+  max_lon: 78.65
+wards:
+  total_count: 150
+  source: GHMC GIS
+thresholds:
+  congestion_index_high: 0.7
+  aqi_unhealthy: 150

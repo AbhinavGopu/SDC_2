@@ -1,0 +1,58 @@
+routing_rules:
+  signal_timing:
+    authority: "Hyderabad Traffic Police"
+    description: "Junction control, signal plans, and immediate congestion management."
+  junction_congestion:
+    authority: "Hyderabad Traffic Police"
+    description: "Traffic flow management, barricading, and police deployment."
+  black_spots:
+    authority: "Hyderabad Traffic Police"
+    description: "High-accident and severe-congestion junctions."
+  road_condition:
+    authority: "GHMC Engineering (Roads) wing"
+    description: "Pothole filling, asphalt relaying, and general road resurfacing."
+  potholes:
+    authority: "GHMC Engineering (Roads) wing"
+    description: "Pothole filling and repair."
+  road_widening:
+    authority: "GHMC Engineering (Roads) wing"
+    description: "Road widening projects, land acquisition support."
+  footpaths:
+    authority: "GHMC Engineering (Roads) wing"
+    description: "Pedestrian footpath design, maintenance, and clearing."
+  illegal_parking:
+    authority: "GHMC + Traffic Police (joint)"
+    description: "Tow-away zones, parking fee enforcement, and clearing encroachment."
+  encroachment:
+    authority: "GHMC + Traffic Police (joint)"
+    description: "Encroachment of street vendors or shop extensions on roads/footpaths."
+  air_quality:
+    authority: "TSPCB"
+    description: "Telangana State Pollution Control Board monitors and controls emissions."
+  vehicular_emissions:
+    authority: "TSPCB"
+    description: "Pollution Under Control (PUC) enforcement checks."
+  water_pollution:
+    authority: "HMWSSB"
+    description: "Hyderabad Metropolitan Water Supply and Sewerage Board, sewage overflow."
+  drainage:
+    authority: "HMWSSB"
+    description: "Stormwater and sewage line maintenance."
+  land_pollution:
+    authority: "GHMC Solid Waste Management wing"
+    description: "Garbage clearing, illegal dump yard checking."
+  waste_dumping:
+    authority: "GHMC Solid Waste Management wing"
+    description: "Clearing garbage and plastic waste piles on roadsides."
+  power_load:
+    authority: "TSSPDCL"
+    description: "Power grid load management, transformer upgrades."
+  demand_response:
+    authority: "TSSPDCL"
+    description: "Area-wise load shedding and power supply balancing."
+  streetlights:
+    authority: "GHMC Electrical wing"
+    description: "Installation and repair of street lighting."
+  transit_routing:
+    authority: "TSRTC"
+    description: "Telangana State Road Transport Corporation bus routes and stops adjustments."

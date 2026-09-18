@@ -1,0 +1,72 @@
+version: '3.8'
+services:
+  db:
+    image: timescale/timescaledb-postgis:latest-pg15
+    container_name: hyderabad_pg
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: hyderabad_agent
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+      - ./init-db.sh:/docker-entrypoint-initdb.d/init-db.sh:ro
+    ports:
+      - "5432:5432"
+
+  redis:
+    image: redis:7-alpine
+    container_name: hyderabad_redis
+    restart: unless-stopped
+    ports:
+      - "6379:6379"
+
+  backend:
+    build:
+      context: ..
+      dockerfile: deployment/Dockerfile
+    container_name: hyderabad_backend
+    command: uvicorn src.api.main:app --host 0.0.0.0 --port 8000 --reload
+    volumes:
+      - ..:/app
+    working_dir: /app
+    environment:
+      - DATABASE_URL=postgresql://postgres:postgres@db:5432/hyderabad_agent
+      - REDIS_URL=redis://redis:6379/0
+      - ENV=development
+      - SECRET_KEY=supersecretdev
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
+      - redis
+
+  citizen_frontend:
+    build:
+      context: ../frontend/citizen-app
+      dockerfile: Dockerfile
+    container_name: hyderabad_citizen_frontend
+    ports:
+      - "3000:3000"
+    volumes:
+      - ../frontend/citizen-app:/app
+    working_dir: /app
+    environment:
+      - NEXT_PUBLIC_API_BASE_URL=http://localhost:8000
+
+  planner_frontend:
+    build:
+      context: ../frontend/planner-app
+      dockerfile: Dockerfile
+    container_name: hyderabad_planner_frontend
+    ports:
+      - "3001:3001"
+    volumes:
+      - ../frontend/planner-app:/app
+    working_dir: /app
+    environment:
+      - NEXT_PUBLIC_API_BASE_URL=http://localhost:8000
+
+volumes:
+  pgdata:
+    driver: local
